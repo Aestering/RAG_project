@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepL Text Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        textarea, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #translated-text {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DeepL Text Translator</h1>
+        <form method="post">
+            <label for="text">Text to translate:</label>
+            <textarea name="text" id="text" rows="5"></textarea>
+            <label for="source_lang">Source language:</label>
+            <select name="source_lang" id="source_lang">
+                <option value="EN">English</option>
+                <option value="DE">German</option>
+                <option value="FR">French</option>
+                <option value="ZH">Chinese</option>
+                <!-- Add more language options as needed -->
+            </select>
+            <label for="target_lang">Target language:</label>
+            <select name="target_lang" id="target_lang">
+                <option value="EN-GB">English (UK)</option>
+                <option value="EN-US">English (US)</option>
+                <option value="DE">German</option>
+                <option value="FR">French</option>
+                <option value="ZH-HANT">Chinese (tradidiotnal) </option>
+                <!-- Add more language options as needed -->
+            </select>
+            <button type="submit">Translate</button>
+        </form>
+        {% if translated_text %}
+            <div id="translated-text">
+                <h2>Translated Text:</h2>
+                <p>{{ translated_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("translate-button").addEventListener("click", function(event){
+            event.preventDefault();
+            const form = event.target.form;
+            const formData = new FormData(form);
+            fetch('/translate', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("snippet").textContent = data.translation;
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>

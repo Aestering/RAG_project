@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepL Text Translator</title>
+</head>
+<body>
+    <h1>DeepL Text Translator</h1>
+
+    <form method="post">
+        <label for="text">Text to translate:</label>
+        <textarea name="text" id="text" rows="5"></textarea>
+        <br>
+        <label for="source_lang">Source language:</label>
+        <select name="source_lang" id="source_lang">
+            <option value="EN">English</option>
+            <option value="DE">German</option>
+            <option value="FR">French</option>
+            <!-- Add more language options as needed -->
+        </select>
+        <br>
+        <label for="target_lang">Target language:</label>
+        <select name="target_lang" id="target_lang">
+            <option value="EN-GB">English (UK)</option>
+            <option value="EN-US">English (US)</option>
+            <option value="DE">German</option>
+            <option value="FR">French</option>
+            <!-- Add more language options as needed -->
+        </select>
+        <br>
+        <input type="submit" value="Translate">
+    </form>
+
+    
+    {% if translated_text %}
+        <h2>Translated Text:</h2>
+        <p>{{ translated_text }}</p>
+    {% endif %}
+    
+    
+
+    <script>
+        document.getElementById("translate-button").addEventListener("click", function(event){
+            event.preventDefault();
+            const form = event.target.form;
+            const formData = new FormData(form);
+            fetch('/translate', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("snippet").textContent = data.translation;
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    
+    </script>
+
+
+</body>
+</html>

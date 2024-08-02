@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  main {
+    margin: 20px;
+  }
+  
+  h1 {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #5372F0;
+    color: #fff;
+    z-index: 2;
+    font-size: 24px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar li {
+    margin: 0 10px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 690px;
+    width: 100%;
+    padding: 50px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wrapper {
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+  }
+  
+  .text-input {
+    display: flex;
+    border-bottom: 1px solid #e6e6e6;
+    justify-content: center;
+  }
+  
+  .text-input .to-text {
+    border-left: 1px solid #e6e6e6;
+  }
+  
+  .text-input textarea {
+    height: 250px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .text-input textarea::placeholder {
+    color: #b7b6b6;
+  }
+  
+  .controls,
+  li,
+  .icons,
+  .icons i {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .controls {
+    list-style: none;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .controls .row .icons {
+    width: 38%;
+  }
+  
+  .controls .row .icons i {
+    width: 50px;
+    color: #adadad;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    justify-content: center;
+  }
+  
+  .controls .row.from .icons {
+    padding-right: 15px;
+    border-right: 1px solid #e6e6e6;
+  }
+  
+  .controls .row.to .icons {
+    padding-left: 15px;
+    border-left: 1px solid #e6e6e6;
+  }
+  
+  .controls .row select {
+    color: #333;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    padding-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .text-input textarea::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .controls .row select::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .text-input textarea::-webkit-scrollbar-track,
+  .controls .row select::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+  }
+  
+  .text-input textarea::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+  }
+  
+  .controls .row select::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 8px;
+    border-right: 2px solid #f2f2f2;
+  }
+  
+  .controls .exchange {
+    color: #adadad;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+  }
+  
+  .controls i:active {
+    transform: scale(0.9);
+  }
+  
+  .container button {
+    width: 100%;
+    padding: 16px;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #5372F0;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .container button:hover {
+    background-color: #3d5dc6;
+  }
+  
+  @media (max-width: 660px) {
+    .container {
+      padding: 20px;
+      margin-top: 100px;
+    }
+  
+    .wrapper .text-input {
+      flex-direction: column;
+    }
+  
+    .text-input .to-text {
+      border-left: 0px;
+      border-top: 1px solid #e6e6e6;
+    }
+  
+    .text-input textarea {
+      height: 200px;
+    }
+  
+    .controls .row .icons {
+      display: none;
+    }
+  
+    .container button {
+      padding: 14px;
+      font-size: 16px;
+    }
+  
+    .controls .row select {
+      font-size: 16px;
+    }
+  
+    .controls .exchange {
+      font-size: 14px;
+    }
+  }

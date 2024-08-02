@@ -1,0 +1,18 @@
+{
+    "name": "html-testing",
+    "description": "Translating input from a website into other languages",
+    "type": "module",
+    "dependencies": {
+        "@types/node": "20.14.11",
+        "deepl-node": "file:../..",
+        "dotenv": "^16.4.5"
+    },
+    "main": "apps.js",
+    "scripts":{
+        "main": "node app.js"
+    }
+
+
+
+
+}

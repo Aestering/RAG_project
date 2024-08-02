@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepL Translator</title>
+</head>
+<body>
+  <h1>DeepL Translator</h1>
+  <form id="translator-form">
+    <label for="text">Text to translate:</label>
+    <textarea id="text" rows="3"></textarea>
+    <br>
+    <label for="target-lang">Target Language:</label>
+    <input type="text" id="target-lang" value="DE">
+    <br>
+    <label for="source-lang">Source Language (optional):</label>
+    <input type="text" id="source-lang">
+    <br>
+    <button type="submit">Translate</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('translator-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const text = document.getElementById('text').value;
+        const targetLang = document.getElementById('target-lang').value;
+        const sourceLang = document.getElementById('source-lang').value;
+
+        fetch('/translate', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({ text, target_lang: targetLang, source_lang: sourceLang })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').textContent = data.translations[0].text;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('result').textContent = 'An error occurred while translating.';
+        });
+    });
+  </script>
+</body>
+</html>

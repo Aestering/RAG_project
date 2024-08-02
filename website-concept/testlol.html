@@ -1,0 +1,40 @@
+<html>
+<body>
+    <form id="myForm" action="https://api.01.ai/v1/chat/completions" method="post">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Send</button>
+      </form>
+      <script>
+        const form = document.getElementById('myForm');
+        form.addEventListener('submit', (event) => {
+          event.preventDefault(); // Prevent the default form submission
+      
+          const message = document.getElementById('message').value;
+          const apiKey = 'YOUR_API_KEY_HERE';
+      
+          fetch('https://api.01.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${dc2935e111024862885468d5cbe358af}`
+            },
+            body: JSON.stringify({
+              model: 'yi-large',
+              messages: [{ role: 'user', content: message }],
+              temperature: 0.3
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Response:', data);
+            // Handle the response data
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            // Handle any errors
+          });
+        });
+      </script>
+</body>
+</html>
