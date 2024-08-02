@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generation</title>
+</head>
+<body>
+    <h1>Text Generation</h1>
+    <input type="text" id="promptInput" placeholder="Enter a prompt">
+    <button onclick="generateText()">Generate</button>
+    <p id="result"></p>
+
+    <script>
+        function generateText() {
+            const prompt = document.getElementById('promptInput').value;
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').textContent = data.response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
