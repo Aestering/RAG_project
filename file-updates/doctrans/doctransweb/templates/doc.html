@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEPL Document Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .file-input {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .file-input.drag-over {
+            border-color: #4CAF50;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #language-select {
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        #selected-file {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DeepL Document Translator</h1>
+        <div class="file-input" id="file-input">
+            <p>Drag and drop your document here or click to select a file</p>
+            <input type="file" id="file-picker" accept=".pdf,.docx,.doc,.pptx,.xlsx,.html,.txt,.xlf,.xliff,.srt" style="display: none;">
+        </div>
+        <form method="post">
+            <select name="targetLanguage" id="targetLanguage">
+                <option value="EN-US">English US</option>
+                <option value="EN-GB">English UK</option>
+                <option value="de">German</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="it">Italian</option>
+                <option value="nl">Dutch</option>
+                <option value="pl">Polish</option>
+                <option value="ru">Russian</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+            </select>
+        </form>
+        <button class="button" onclick="translateDocument()">Translate</button>
+        <div id="selected-file"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const filePicker = document.getElementById('file-picker');
+        const languageSelect = document.getElementById('targetLanguage');
+        const selectedFileDiv = document.getElementById('selected-file');
+
+        fileInput.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            fileInput.classList.add('drag-over');
+        });
+
+        fileInput.addEventListener('dragleave', () => {
+            fileInput.classList.remove('drag-over');
+        });
+
+        fileInput.addEventListener('drop', (event) => {
+            event.preventDefault();
+            fileInput.classList.remove('drag-over');
+            handleFile(event.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('click', () => {
+            filePicker.click();
+        });
+
+        filePicker.addEventListener('change', (event) => {
+            handleFile(event.target.files[0]);
+        });
+
+        function handleFile(file) {
+            if (file) {
+                selectedFileDiv.textContent = `Selected file: ${file.name}`;
+                translateDocument(file);
+            }
+        }
+
+        function translateDocument(file) {
+            const targetLanguage = languageSelect.value;
+
+            if (!file) {
+                alert('Please select a file to translate.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('targetLanguage', targetLanguage);
+
+            fetch('/document', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                } else {
+                    return response.text().then(text => Promise.reject(text));
+                }
+            })
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', `translated_${file.name}`);
+                document.body.appendChild(link);
+                link.click();
+                link.parentNode.removeChild(link);
+            })
+            .catch(error => {
+                alert(`Error: ${error}`);
+            });
+        }
+    </script>
+</body>
+</html>
