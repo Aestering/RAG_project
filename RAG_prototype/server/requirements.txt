@@ -3,3 +3,4 @@ flask-cors
 llama-index
 llama-index-llms-yi
 llama-index-embeddings-huggingface
+deepl
