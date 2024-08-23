@@ -1,0 +1,82 @@
+.translation-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin-top: 4rem;
+  }
+  
+  .input-output-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 9000px;
+    height: 50%;
+    max-height: 9000px;
+
+    margin-top: 2rem;
+  }
+  
+  .input-container,
+  .output-container {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 500px;
+    resize: none;
+  }
+  
+  .button-container {
+    margin-top: 2rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (max-width: 768px) {
+    .input-output-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .input-container,
+    .output-container {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
