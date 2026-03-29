@@ -3,7 +3,7 @@ from llama_index.llms.mistralai import MistralAI
 from llama_index.embeddings.mistralai import MistralAIEmbedding
 from llama_index.core.settings import Settings
 
-api_key="3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk"
+api_key="###"
 documents = SimpleDirectoryReader("data").load_data()
 
 # define llm
