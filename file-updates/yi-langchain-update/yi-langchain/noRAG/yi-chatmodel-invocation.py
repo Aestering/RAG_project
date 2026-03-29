@@ -1,5 +1,5 @@
 import os
-os.environ["YI_API_KEY"] = "dc2935e111024862885468d5cbe358af"
+os.environ["YI_API_KEY"] = "###"
 
 from langchain_community.chat_models.yi import ChatYi
 from langchain_core.messages import HumanMessage, SystemMessage
