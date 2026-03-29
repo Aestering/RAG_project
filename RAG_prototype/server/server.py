@@ -4,7 +4,7 @@ import os
 import json
 import deepl
 
-os.environ["YI_API_KEY"] = "dc2935e111024862885468d5cbe358af"
+os.environ["YI_API_KEY"] = "#########"
 
 app = Flask(__name__)
 CORS(app)
