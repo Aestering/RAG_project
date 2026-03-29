@@ -1,5 +1,5 @@
 import os
-os.environ["DASHSCOPE_API_KEY"] = "sk-6c57f1fdfa3f44d8bf5617d5c4586f28"
+os.environ["DASHSCOPE_API_KEY"] = "####"
 
 from langchain_community.llms.tongyi import Tongyi
 
