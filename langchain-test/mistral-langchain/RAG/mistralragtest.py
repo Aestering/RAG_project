@@ -1,5 +1,5 @@
 import os
-os.environ["MISTAL_API_KEY"] = "3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk"
+os.environ["MISTAL_API_KEY"] = "###"
 
 from langchain_mistralai import ChatMistralAI
 
