@@ -4,7 +4,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 # Importing the Dashscope Model
 from llama_index.llms.dashscope import DashScope
 import os
-os.environ["DASHSCOPE_API_KEY"] = "sk-6c57f1fdfa3f44d8bf5617d5c4586f28"
+os.environ["DASHSCOPE_API_KEY"] = "###"
 
 # Initialise reading data from a source
 documents = SimpleDirectoryReader("document").load_data()
