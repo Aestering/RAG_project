@@ -1,5 +1,5 @@
 import os
-os.environ["YI_API_KEY"] = "dc2935e111024862885468d5cbe358af"
+os.environ["YI_API_KEY"] = "###"
 
 from llama_index.core import KeywordTableIndex, SimpleDirectoryReader
 from llama_index.llms.yi import Yi
