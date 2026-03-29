@@ -4,7 +4,7 @@ from deepl import Translator, DocumentTranslationException, DeepLException
 
 app = Flask(__name__)
 
-os.environ["DEEPL_AUTH_KEY"] = "037dbd64-30f9-4fdf-b75c-8bb546536181:fx"
+os.environ["DEEPL_AUTH_KEY"] = "########"
 
 @app.route('/')
 def index():
