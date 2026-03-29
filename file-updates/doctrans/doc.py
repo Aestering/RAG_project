@@ -1,7 +1,7 @@
 import deepl
 import os
 
-os.environ["DEEPL_AUTH_KEY"] = "037dbd64-30f9-4fdf-b75c-8bb546536181:fx"
+os.environ["DEEPL_AUTH_KEY"] = "#######"
 
 translator = deepl.Translator(os.getenv("DEEPL_AUTH_KEY"))
 
