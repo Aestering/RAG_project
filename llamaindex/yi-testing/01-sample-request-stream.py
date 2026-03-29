@@ -1,7 +1,7 @@
 import openai
 from openai import OpenAI
 API_BASE = "https://api.01.ai/v1"
-API_KEY = "dc2935e111024862885468d5cbe358af"
+API_KEY = "###"
 client = OpenAI(
     api_key=API_KEY,
     base_url=API_BASE
