@@ -5,7 +5,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.yi import Yi
 import os
 import os.path
-os.environ["YI_API_KEY"] = "dc2935e111024862885468d5cbe358af"
+os.environ["YI_API_KEY"] = "###"
 
 # Viewing Queries and Events Using Logging
 import logging
