@@ -1,5 +1,5 @@
 import os
-os.environ["DASHSCOPE_API_KEY"] = "sk-258b7198c52c4abba2a2f40c4f24d41c"
+os.environ["DASHSCOPE_API_KEY"] = "###"
 
 from llama_index.llms.dashscope import DashScope, DashScopeGenerationModels
 
