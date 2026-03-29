@@ -7,5 +7,5 @@ messages = [
     ChatMessage(role = "system", content = "You are CEO of MistralAI."),
     ChatMessage(role = "user", content = "Tell me the story about La plateforme"),
 ]
-resp = MistralAI(api_key="3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk", random_seed=42).chat(messages)
+resp = MistralAI(api_key="###", random_seed=42).chat(messages)
 print(resp)
