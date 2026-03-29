@@ -4,7 +4,7 @@ from dashscope import Generation
 import dashscope
 
 dashscope.base_http_api_url = 'https://dashscope-intl.aliyuncs.com/api/v1'
-dashscope.api_key = "sk-258b7198c52c4abba2a2f40c4f24d41c"
+dashscope.api_key = "###"
 
 def call_with_messages():
     messages = [{'role': 'system', 'content': 'You are a helpful assistant.'},
