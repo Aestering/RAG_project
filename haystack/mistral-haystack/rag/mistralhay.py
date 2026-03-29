@@ -16,7 +16,7 @@ from haystack.components.retrievers.in_memory import InMemoryEmbeddingRetriever
 from haystack.components.writers import DocumentWriter
 from haystack_integrations.components.embedders.mistral import MistralDocumentEmbedder, MistralTextEmbedder
 from haystack_integrations.components.generators.mistral import MistralChatGenerator
-api_key="3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk"
+api_key="###"
 
 document_store = InMemoryDocumentStore()
 
