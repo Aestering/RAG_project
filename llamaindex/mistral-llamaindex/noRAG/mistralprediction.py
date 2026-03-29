@@ -11,7 +11,7 @@ class Restaurant(BaseModel):
     cuisine: str
 
 
-llm = MistralAI(model="mistral-large-latest", api_key="3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk")
+llm = MistralAI(model="mistral-large-latest", api_key="###")
 prompt_tmpl = PromptTemplate(
     "Generate a restaurant in a given city {city_name}"
 )
