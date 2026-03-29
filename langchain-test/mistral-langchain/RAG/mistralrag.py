@@ -6,7 +6,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
-api_key = "3GyMujRYXjA3Ti37gq0vCEjQVYTu9ATk"
+api_key = "###"
 
 #pip install unstructured
 #pip install libmagic
