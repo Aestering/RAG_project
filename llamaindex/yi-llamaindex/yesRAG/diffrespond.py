@@ -4,7 +4,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 # Importing the YI Model
 from llama_index.llms.yi import Yi
 import os
-os.environ["YI_API_KEY"] = "dc2935e111024862885468d5cbe358af"
+os.environ["YI_API_KEY"] = "###"
 
 # Initialise reading data from a source
 documents = SimpleDirectoryReader("data").load_data()
